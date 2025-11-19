@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 (async ()=>{
     const browser = await puppeteer.launch({
-        headless: false,
+        headless: true,
         slowMo: 100,
         args: ["--window-size=1920,1080 "]
     });
@@ -15,5 +15,7 @@ const puppeteer = require('puppeteer');
     const signPageLink ="ul > li:nth-child(3)> a"
     await page.waitForSelector(signPageLink);
     await page.click(signPageLink);
+    console.log("Sign In page loaded successfully");
+    await browser.close(); 
 }
 )();    
